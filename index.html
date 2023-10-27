@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div>
+    <div class="screen">
         <div class="title">
             <img class="dungeon-master" src="./dungeons/master.jpg" alt=""/>
             <h5 class="text">Hero Quest Dungeon Master</h5>
@@ -19,14 +19,13 @@
             <label for="characterLevel">Cual es el nivel de sus personajes?</label>
                 <select id="characterLevel" name="characterLevel">
                   <option value="">(select one)</option>
-                  <option value="1">Nivel 1: "Somos novatos, todavía aprendemos a no tropezar con nuestras propias espadas."</option>
+                  <option value="1">Nivel 1: "Somos novatos, todavía tropezamos con nuestras propias espadas."</option>
                   <option value="2">Nivel 2: "Hemos avanzado, sabemos diferenciar entre el filo y la empuñadura."</option>
                   <option value="3">Nivel 3: "Ya no tenemos miedo a las arañas... bueno, la mayoría de las veces."</option>
                   <option value="4">Nivel 4: "Incluso los dragones corren cuando nos ven llegar."</option>
                 </select>
-              
               <label for="mission">Selecciona tu Misión</label>
-                <select id="characterLevel" name="characterLevel">
+                <select id="mission" name="mission">
                   <option value="">(select one)</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -37,12 +36,13 @@
                   <option value="7">7</option>
                   <option value="8">8</option>
                 </select>
-              
           </fieldset>
           <input type="submit" value="Submit" class="submit"/>
         </form>
-        
-
+    </div>
+    <div class="mission-info" style="display: none;">
+        <h1 id="mission-title"></h1>
+        <p id="mission-purpose"></p>
     </div>
     
     <script src="scripts.js"></script>
