@@ -120,10 +120,58 @@ nextButton.addEventListener('click', (e) => {
     roomone.style.display = 'block';
 });
 
-// Agrega un controlador de eventos al botón "Next"
 toroomtwo.addEventListener('click', (e) => {
     e.preventDefault(); // Evita la recarga de la página por defecto
     roomone.style.display = 'none';
     roomtwo.style.display = 'block';
 });
-
+toroomthree.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomtwo.style.display = 'none';
+    roomthree.style.display = 'block';
+});
+toroomfour.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomthree.style.display = 'none';
+    roomfour.style.display = 'block';
+});
+toroomfive.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomfour.style.display = 'none';
+    roomfive.style.display = 'block';
+});
+toroomsix.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomfive.style.display = 'none';
+    roomsix.style.display = 'block';
+});
+toroomseven.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomsix.style.display = 'none';
+    roomseven.style.display = 'block';
+});
+toroomeight.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomseven.style.display = 'none';
+    roomeight.style.display = 'block';
+});
+toroomnine.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomeight.style.display = 'none';
+    roomnine.style.display = 'block';
+});
+toroomten.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomnine.style.display = 'none';
+    roomten.style.display = 'block';
+});
+tofinal.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomten.style.display = 'none';
+    final.style.display = 'block';
+});
+tohome.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    final.style.display = 'none';
+    screenDiv.style.display = 'block';
+});
