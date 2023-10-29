@@ -42,6 +42,24 @@ const missions = {
     }  
 };
 
+const furnitures = [
+    'table', 'table', 'throne', 'alchemistbench', 'chest', 'chest', 'chest', 'tomb', 
+    'sorcerertable', 'bookcase', 'bookcase', 'rack', 'fireplace', 'weaponsrack', 'cupboard'
+];
+
+const monsters = {
+    goblin: 1,
+    orc: 2,
+    skeleton: 1, 
+    zombie: 2,
+    mummie: 3,
+    abomination: 3,
+    dreadWarrior: 4,
+    dreadSorcerer: 5,
+    gargoyle: 5,
+}
+
+
 // Agrega un controlador de eventos al botón "Submit"
 submitButton.addEventListener('click', (e) => {
     e.preventDefault(); // Evita la recarga de la página por defecto
