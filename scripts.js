@@ -6,6 +6,8 @@ const missionPurpose = document.getElementById('mission-purpose');
 const submitButton = document.querySelector('.submit');
 const characterLevelSelect = document.getElementById('characterLevel');
 const missionSelect = document.getElementById('mission');
+const nextButton = document.getElementById('next');
+const roomone = document.querySelector('.roomone');
 
 const missions = {
     1: {
@@ -85,4 +87,11 @@ submitButton.addEventListener('click', (e) => {
         // Puedes personalizar esto según tus necesidades
         alert("Misión no encontrada");
     }
+});
+
+// Agrega un controlador de eventos al botón "Next"
+nextButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    missionDetailsDiv.style.display = 'none';
+    roomone.style.display = 'block';
 });
