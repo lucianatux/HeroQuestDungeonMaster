@@ -20,10 +20,10 @@ body {
   margin: 30px;
   padding: 30px;
 }
-.roomone{
+.room{
   width: 50%;
   height: 50%;
-  background-color: gray;
+  background-color: rgb(5, 5, 5);
 }
 
 

@@ -8,6 +8,27 @@ const characterLevelSelect = document.getElementById('characterLevel');
 const missionSelect = document.getElementById('mission');
 const nextButton = document.getElementById('next');
 const roomone = document.querySelector('.roomone');
+const roomtwo = document.querySelector('.roomtwo');
+const roomthree = document.querySelector('.roomthree');
+const roomfour = document.querySelector('.roomfour');
+const roomfive = document.querySelector('.roomfive');
+const roomsix = document.querySelector('.roomsix');
+const roomseven = document.querySelector('.roomseven');
+const roomeight = document.querySelector('.roomeight');
+const roomnine = document.querySelector('.roomnine');
+const roomten = document.querySelector('.roomten');
+const final = document.querySelector('.final');
+const toroomtwo = document.querySelector('#toroomtwo');
+const toroomthree = document.querySelector('#toroomthree');
+const toroomfour = document.querySelector('#toroomfour');
+const toroomfive = document.querySelector('#toroomfive');
+const toroomsix = document.querySelector('#toroomsix');
+const toroomseven = document.querySelector('#toroomseven');
+const toroomeight = document.querySelector('#toroomeight');
+const toroomnine = document.querySelector('#toroomnine');
+const toroomten = document.querySelector('#toroomten');
+const tofinal = document.querySelector('#tofinal');
+const tohome = document.querySelector('#tohome');
 
 const missions = {
     1: {
@@ -73,20 +94,23 @@ submitButton.addEventListener('click', (e) => {
     // Obtiene el objeto de misión correspondiente según el valor seleccionado
     const selectedMissionInfo = missions[selectedMission];
 
-    // Verifica si se encontró información de la misión seleccionada
-    if (selectedMissionInfo) {
-        // Actualiza el contenido del div de detalles de la misión con el título y el propósito
-        missionTitle.textContent = selectedMissionInfo.title;
-        missionPurpose.textContent = selectedMissionInfo.purpose;
-
-        // Oculta el div de "screen" y muestra el div de detalles de la misión
-        screenDiv.style.display = 'none';
-        missionDetailsDiv.style.display = 'block';
+    if (selectedCharacterLevel) {
+        // Se encontró información del nivel de los personajes
+        if (selectedMissionInfo) {
+            // Se encontró información de la misión seleccionada
+            missionTitle.textContent = selectedMissionInfo.title;
+            missionPurpose.textContent = selectedMissionInfo.purpose;
+            screenDiv.style.display = 'none';
+            missionDetailsDiv.style.display = 'block';
+        } else {
+            // No se encontró información de la misión seleccionada
+            alert("Misión no encontrada");
+        }
     } else {
-        // Si no se encontró información de la misión, muestra un mensaje de error o manejo de errores
-        // Puedes personalizar esto según tus necesidades
-        alert("Misión no encontrada");
+        // No se encontró información del nivel de los personajes
+        alert("Selecciona el nivel de los personajes");
     }
+    
 });
 
 // Agrega un controlador de eventos al botón "Next"
@@ -95,3 +119,11 @@ nextButton.addEventListener('click', (e) => {
     missionDetailsDiv.style.display = 'none';
     roomone.style.display = 'block';
 });
+
+// Agrega un controlador de eventos al botón "Next"
+toroomtwo.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita la recarga de la página por defecto
+    roomone.style.display = 'none';
+    roomtwo.style.display = 'block';
+});
+
