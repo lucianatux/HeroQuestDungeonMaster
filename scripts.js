@@ -7,28 +7,8 @@ const submitButton = document.querySelector('.submit');
 const characterLevelSelect = document.getElementById('characterLevel');
 const missionSelect = document.getElementById('mission');
 const nextButton = document.getElementById('next');
-const roomone = document.querySelector('.roomone');
-const roomtwo = document.querySelector('.roomtwo');
-const roomthree = document.querySelector('.roomthree');
-const roomfour = document.querySelector('.roomfour');
-const roomfive = document.querySelector('.roomfive');
-const roomsix = document.querySelector('.roomsix');
-const roomseven = document.querySelector('.roomseven');
-const roomeight = document.querySelector('.roomeight');
-const roomnine = document.querySelector('.roomnine');
-const roomten = document.querySelector('.roomten');
-const final = document.querySelector('.final');
-const toroomtwo = document.querySelector('#toroomtwo');
-const toroomthree = document.querySelector('#toroomthree');
-const toroomfour = document.querySelector('#toroomfour');
-const toroomfive = document.querySelector('#toroomfive');
-const toroomsix = document.querySelector('#toroomsix');
-const toroomseven = document.querySelector('#toroomseven');
-const toroomeight = document.querySelector('#toroomeight');
-const toroomnine = document.querySelector('#toroomnine');
-const toroomten = document.querySelector('#toroomten');
-const tofinal = document.querySelector('#tofinal');
-const tohome = document.querySelector('#tohome');
+const room = document.querySelector('.room');
+const tonextroom = document.querySelector('#tonextroom');
 
 const missions = {
     1: {
@@ -136,6 +116,7 @@ submitButton.addEventListener('click', (e) => {
     }
     
 });
+
 // Función para mostrar una habitación y ocultar otra
 function showRoom(currentRoom, nextRoom) {
     currentRoom.style.display = 'none';
@@ -150,19 +131,15 @@ function setupRoomTransition(btn, from, to) {
     });
 }
 
-setupRoomTransition(nextButton, missionDetailsDiv, roomone);
-setupRoomTransition(toroomtwo, roomone, roomtwo);
-setupRoomTransition(toroomthree, roomtwo, roomthree);
-setupRoomTransition(toroomfour, roomthree, roomfour);
-setupRoomTransition(toroomfive, roomfour, roomfive);
-setupRoomTransition(toroomsix, roomfive, roomsix);
-setupRoomTransition(toroomseven, roomsix, roomseven);
-setupRoomTransition(toroomeight, roomseven, roomeight);
-setupRoomTransition(toroomnine, roomeight, roomnine);
-setupRoomTransition(toroomten, roomnine, roomten);
-setupRoomTransition(tofinal, roomten, final);
-setupRoomTransition(tohome, final, screenDiv);
+setupRoomTransition(nextButton, missionDetailsDiv, room);
 
+
+function createRoom(playerLevel, mission, monsters, furnitures){
+    setupMonsters(playerLevel, monsters);
+    setupFurnitures(furnitures);
+    setupDoors();
+    setupMonsters(mission);
+}
 
 function setupMonsters(playerLevel, monsters) {
     const monsterNames = Object.keys(monsters);
@@ -201,3 +178,31 @@ function setupMonsters(playerLevel, monsters) {
 const playerLevel = 4;
 const generatedMonsters = setupMonsters(playerLevel, monsters);
 console.log(generatedMonsters); // Devolverá un arreglo con nombres de monstruos generados.
+
+function setupFurnitures(furnitures){
+    const furnituresNames = furnitures;
+    console.log(furnituresNames); 
+    const generatedFurnitures = [];
+    let numFurnitures = 0;
+    let probabilities;
+    numFurnitures = Math.floor(Math.random() * 3);
+    
+    for (let i = 0; i < numFurnitures; i++) {
+        // Generate a random index to select a furniture from the array.
+        const randomIndex = Math.floor(Math.random() * furnitures.length);
+
+        // Add the selected furniture to the generatedFurnitures array.
+        generatedFurnitures.push(furnitures[randomIndex]);
+
+        // Remove the selected furniture from the original array to avoid duplicates.
+        furnitures.splice(randomIndex, 1);
+    }
+
+    return generatedFurnitures;
+}
+
+// Example usage:
+const furnituresArray = ["Chair", "Table", "Sofa", "Desk", "Bed"];
+const selectedFurnitures = setupFurnitures(furnituresArray);
+console.log(selectedFurnitures);
+
