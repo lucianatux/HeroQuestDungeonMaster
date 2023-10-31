@@ -134,12 +134,14 @@ function setupRoomTransition(btn, from, to) {
 setupRoomTransition(nextButton, missionDetailsDiv, room);
 
 
-function createRoom(playerLevel, mission, monsters, furnitures){
-    setupMonsters(playerLevel, monsters);
-    setupFurnitures(furnitures);
-    setupDoors();
-    setupMonsters(mission);
+function createRoom(playerLevel, monsters, furnitures){
+    const roomMonsters = setupMonsters(playerLevel, monsters);
+    const roomFurnitures = setupFurnitures(furnitures);
+    const roomDoors = setupDoors();
+    const roomAllElements = roomMonsters.concat(roomFurnitures);
+    console.log("habitacion " + roomAllElements);
 }
+createRoom(1, monsters, furnitures);
 
 function setupMonsters(playerLevel, monsters) {
     const monsterNames = Object.keys(monsters);
@@ -175,7 +177,7 @@ function setupMonsters(playerLevel, monsters) {
 }
 
 // Ejemplo de uso:
-const playerLevel = 4;
+const playerLevel = 1;
 const generatedMonsters = setupMonsters(playerLevel, monsters);
 console.log(generatedMonsters); // Devolverá un arreglo con nombres de monstruos generados.
 
@@ -206,3 +208,28 @@ const furnituresArray = ["Chair", "Table", "Sofa", "Desk", "Bed"];
 const selectedFurnitures = setupFurnitures(furnituresArray);
 console.log(selectedFurnitures);
 
+
+function setupDoors() {
+    const doors = ['left', 'right', 'front'];
+    const roomDoors = [];
+
+    // Determina la cantidad de puertas (0, 1, 2, o 3).
+    const numDoors = Math.floor(Math.random() * 4);
+
+    // Determina la posición de las puertas sin repetir la posición.
+    while (roomDoors.length < numDoors) {
+        const randomPosition = doors[Math.floor(Math.random() * doors.length)];
+        if (!roomDoors.includes(randomPosition)) {
+            roomDoors.push(randomPosition);
+        }
+    }
+
+    return roomDoors;
+}
+
+// Ejemplo de uso:
+const habitacionConPuertas = setupDoors();
+console.log('Puertas en la habitación:', habitacionConPuertas);
+
+
+   
