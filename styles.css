@@ -92,19 +92,21 @@ option {
 }
 
 table {
-  width: 100%;
   border-collapse: collapse;
+  box-shadow: 0 0 20px #000;
+  border: 5px solid #000;
 }
 
 td {
-  width: 25%;
-  height: 100px; /* Ajusta la altura según tus necesidades */
+  width: 200px;
+  height: 200px;
   text-align: center;
   vertical-align: middle;
   border: 1px solid #000; /* Borde para cada celda */
   font-size: 18px;
   background-color: #f0f0f0aa; 
   color: #000;
+  background-image: url('./dungeons/tile\ \(3\).jpeg');
 }
 
 
@@ -123,6 +125,10 @@ td {
   }
   .submit {
     font-size: 16px;
+  }
+  td {
+    width: 100px;
+    height: 100px;
   }
 }
 
