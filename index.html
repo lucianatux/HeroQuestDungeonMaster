@@ -1,60 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hero Quest Dungeon Master</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="shortcut icon" href="./dungeons/dragon05.jpg" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="screen">
-        <div class="title">
-            <img class="dungeon-master" src="./dungeons/master.jpg" alt=""/>
-            <h5 class="text">Hero Quest Dungeon Master</h5>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="shortcut icon"
+      href="./dungeons/dragon05.jpg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand brand text-light" href="#">HQDM</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link text-light dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <form action=''>
-          <fieldset>
-            <label for="characterLevel">Cual es el nivel de sus personajes?</label>
-                <select id="characterLevel" name="characterLevel">
-                  <option value="">(select one)</option>
-                  <option value="1">Nivel 1: "Somos novatos, todavía tropezamos con nuestras propias espadas."</option>
-                  <option value="2">Nivel 2: "Hemos avanzado, sabemos diferenciar entre el filo y la empuñadura."</option>
-                  <option value="3">Nivel 3: "Ya no tenemos miedo a las arañas... bueno, la mayoría de las veces."</option>
-                  <option value="4">Nivel 4: "Incluso los dragones corren cuando nos ven llegar."</option>
-                </select>
-              <label for="mission">Selecciona tu Misión</label>
-                <select id="mission" name="mission">
-                  <option value="">(select one)</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                </select>
-          </fieldset>
-          <input type="submit" value="Submit" class="submit"/>
-        </form>
+      </nav>
+    </header>
+    <div class="screen">
+      <div class="title">
+        <img class="dungeon-master" src="./dungeons/master.jpg" alt="" />
+        <h5 class="text">Hero Quest Dungeon Master</h5>
+      </div>
+      <form action="">
+        <fieldset>
+          <label for="characterLevel"
+            >Cual es el nivel de sus personajes?</label
+          >
+          <select id="characterLevel" name="characterLevel">
+            <option value="">(select one)</option>
+            <option value="1">
+              Nivel 1: "Somos novatos, todavía tropezamos con nuestras propias
+              espadas."
+            </option>
+            <option value="2">
+              Nivel 2: "Hemos avanzado, sabemos diferenciar entre el filo y la
+              empuñadura."
+            </option>
+            <option value="3">
+              Nivel 3: "Ya no tenemos miedo a las arañas... bueno, la mayoría de
+              las veces."
+            </option>
+            <option value="4">
+              Nivel 4: "Incluso los dragones corren cuando nos ven llegar."
+            </option>
+          </select>
+          <label for="mission">Selecciona tu Misión</label>
+          <select id="mission" name="mission">
+            <option value="">(select one)</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+          </select>
+        </fieldset>
+        <input type="submit" value="Submit" class="submit" />
+      </form>
     </div>
-    <div class="mission-info" style="display: none;">
-        <h1 id="mission-title"></h1>
-        <p id="mission-purpose"></p>
-        <button id="next">Next</button>
+    <div class="mission-info" style="display: none">
+      <h1 id="mission-title"></h1>
+      <p id="mission-purpose"></p>
+      <button id="next">Next</button>
     </div>
-    <div id="note-one" style="display: none;"></div>
-    <div id="note-two" style="display: none;"></div>
-    <div id="note-three" style="display: none;"></div>
-    <div class="room" style="display: none;">
+    <div id="note-one" style="display: none"></div>
+    <div id="note-two" style="display: none"></div>
+    <div id="note-three" style="display: none"></div>
+    <div class="room" style="display: none">
       <button id="tonextroom">Next</button>
-  </div>
-    <div id="final" style="display: none;"></div>
-    
-    <script src="scripts.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </div>
+    <div id="final" style="display: none"></div>
 
-</body>
+    <script src="scripts.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

@@ -1,6 +1,6 @@
 body {
   font-family:Georgia, 'Times New Roman', Times, serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./dungeons/ground8.jpeg");
+  background: linear-gradient(#00000198, #00000198), url("./dungeons/ground9.jpg");
   background-position: center;
   margin: 0;
   padding: 0;
@@ -16,19 +16,23 @@ body {
     display: none;
 }
 
+.navbar{
+  position: fixed;
+  top: 0;
+}
+.nav-link, .brand {
+  color: #fff; 
+}
+.nav-link:hover {
+  color: #fff; 
+  text-shadow: 5px 5px 10px #000;
+}
+
 .mission-info{
   background-color: #111;
   margin: 30px;
   padding: 30px;
 }
-/*
-.room{
-  width: 80%;
-  height: 80%;
-  background-color: rgb(5, 5, 5);
-  box-shadow: 0 0 10px #111;
-}*/
-
 
 .screen {
   background-color: #111;
@@ -93,8 +97,7 @@ option {
 
 table {
   border-collapse: collapse;
-  box-shadow: 0 0 20px #000;
-  border: 5px solid #000;
+  box-shadow: 0 0 30px #000;
 }
 
 td {
@@ -103,12 +106,13 @@ td {
   text-align: center;
   vertical-align: middle;
   border: 1px solid #000; /* Borde para cada celda */
-  font-size: 18px;
+  font-size: 24px;
   background-color: #f0f0f0aa; 
-  color: #000;
-  background-image: url('./dungeons/tile\ \(3\).jpeg');
+  color: #fff;
+  text-shadow: 5px 5px 8px #000;
+  background: linear-gradient(#0000002a, #00000026), url("./dungeons/tile5.jpeg");
+  background-size: cover;
 }
-
 
 @media (max-width: 768px) {
   body {

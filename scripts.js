@@ -170,10 +170,12 @@ function createRoom(playerLevel, monsters, furnitures) {
   console.log("roomMonsters " , roomMonsters);
   const roomFurnitures = setupFurnitures(furnitures);
   const roomDoors = setupDoors();
+  console.log("roomDoors " , roomDoors);
   const roomAllElements = roomMonsters.concat(roomFurnitures);
   console.log("habitacion " + roomAllElements);
   // Asignar elementos aleatoriamente a la tabla.
   asignarElementosAleatoriosATabla(table, roomAllElements);
+  drawDoors(table, roomDoors);
   return table;
 }
 // Función para crear una tabla de 3x3
@@ -275,19 +277,16 @@ console.log("Puertas en la habitación:", habitacionConPuertas);*/
 
 function asignarElementosAleatoriosATabla(table, elementos) {
   const totalCeldas = table.rows.length * table.rows[0].cells.length;
-
   // Verifica que haya suficientes celdas para los elementos.
   if (elementos.length > totalCeldas) {
     console.error("No hay suficientes celdas para los elementos.");
     return;
   }
-
   // Genera números aleatorios únicos para asignar a los elementos.
   const numerosAleatoriosUnicos = generarNumerosAleatoriosUnicos(
     totalCeldas,
     elementos.length
   );
-
   // Recorre las celdas y asigna elementos en posiciones aleatorias.
   elementos.forEach((elemento, indice) => {
     const numeroAleatorio = numerosAleatoriosUnicos[indice];
@@ -307,10 +306,21 @@ function generarNumerosAleatoriosUnicos(max, cantidad) {
   return [...numerosUnicos];
 }
 
-/*setupRoomTransition(
-  nextButton,
-  missionDetailsDiv,
-  room,
-  monsters,
-  furnitures
-);*/
+function drawDoors(table, roomDoors) {
+  const cells = table.getElementsByTagName('td');
+
+  if (roomDoors.includes('left')) {
+    // Crea un borde izquierdo en la celda 'd' (segunda columna)
+    cells[3].style.borderLeft = '10px solid #7f4b2b';
+  }
+
+  if (roomDoors.includes('right')) {
+    // Crea un borde derecho en la celda 'f' (segunda columna)
+    cells[5].style.borderRight = '10px solid #7f4b2b';
+  }
+
+  if (roomDoors.includes('front')) {
+    // Crea un borde superior en la celda 'b' (primera fila)
+    cells[1].style.borderTop = '10px solid #7f4b2b';
+  }
+}
