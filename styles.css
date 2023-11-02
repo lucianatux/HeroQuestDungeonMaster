@@ -110,7 +110,7 @@ td {
   background-color: #f0f0f0aa; 
   color: #fff;
   text-shadow: 5px 5px 8px #000;
-  background: linear-gradient(#0000002a, #00000026), url("./dungeons/tile5.jpeg");
+  background: linear-gradient(#00000005, #00000005), url("./dungeons/tile5.jpeg");
   background-size: cover;
 }
 
@@ -135,4 +135,5 @@ td {
     height: 100px;
   }
 }
+
 

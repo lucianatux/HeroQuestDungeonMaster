@@ -165,14 +165,10 @@ function showRoom(currentRoom, nextRoom) {
 //Funcion que dibuja la habitacion con monstruos y muebles
 function createRoom(playerLevel, monsters, furnitures) {
   const table = createTable();
-  console.log("monsters in createroom" , monsters);
   const roomMonsters = setupMonsters(playerLevel, monsters);
-  console.log("roomMonsters " , roomMonsters);
   const roomFurnitures = setupFurnitures(furnitures);
   const roomDoors = setupDoors();
-  console.log("roomDoors " , roomDoors);
   const roomAllElements = roomMonsters.concat(roomFurnitures);
-  console.log("habitacion " + roomAllElements);
   // Asignar elementos aleatoriamente a la tabla.
   asignarElementosAleatoriosATabla(table, roomAllElements);
   drawDoors(table, roomDoors);
@@ -195,32 +191,21 @@ function createTable() {
 function setupMonsters(playerLevel, monsters) {
   const monsterNames = Object.keys(monsters);
   const level = parseInt(playerLevel, 10); // Asegura que sea un número base 10
-  console.log("monsterNames ", monsterNames);
-  console.log("level en setupmonsters" + level);
   let generatedMonsters = [];
   let numMonsters = 0;
   let probabilities;
   if (level === 1) {
     numMonsters = Math.floor(Math.random() * 4);
     probabilities = [0.25, 0.25, 0.15, 0.15, 0.07, 0.07, 0.04, 0.01, 0.01];
-    console.log("entre en level1");
   } else if (level === 2) {
     numMonsters = Math.floor(Math.random() * 5);
     probabilities = [0.2, 0.2, 0.18, 0.18, 0.09, 0.09, 0.04, 0.01, 0.01];
-    console.log("entre en level2");
-
   } else if (level === 3) {
     numMonsters = Math.floor(Math.random() * 5);
     probabilities = [0.18, 0.18, 0.15, 0.15, 0.11, 0.11, 0.1, 0.01, 0.01];
-    console.log("entre en level3");
-
   } else if (level === 4) {
     numMonsters = Math.floor(Math.random() * 6);
     probabilities = [0.14, 0.14, 0.15, 0.15, 0.15, 0.15, 0.1, 0.01, 0.01];
-    console.log("entre en level4");
-
-  } else{
-    console.log("no entre");
   }
   for (let i = 0; i < numMonsters; i++) {
     let rand = Math.random();
@@ -233,17 +218,11 @@ function setupMonsters(playerLevel, monsters) {
       }
     }
   }
-  console.log("generated monsters " , generatedMonsters);
   return generatedMonsters;
 }
-
-/*a = 1;
-const newmonsters= setupMonsters(a, monsters);
-console.log("new monsters " , newmonsters);*/
 //Función que establece la cantidad y el tipo de muebles en una habitación
 function setupFurnitures(furnitures) {
   const furnituresNames = furnitures;
-  console.log(furnituresNames);
   const generatedFurnitures = [];
   let numFurnitures = 0;
   numFurnitures = Math.floor(Math.random() * 3);
@@ -271,10 +250,6 @@ function setupDoors() {
   }
   return roomDoors;
 }
-// Ejemplo de uso:
-/*const habitacionConPuertas = setupDoors();
-console.log("Puertas en la habitación:", habitacionConPuertas);*/
-
 function asignarElementosAleatoriosATabla(table, elementos) {
   const totalCeldas = table.rows.length * table.rows[0].cells.length;
   // Verifica que haya suficientes celdas para los elementos.
@@ -295,7 +270,6 @@ function asignarElementosAleatoriosATabla(table, elementos) {
     table.rows[fila].cells[columna].textContent = elemento;
   });
 }
-
 // Función para generar números aleatorios únicos en un rango.
 function generarNumerosAleatoriosUnicos(max, cantidad) {
   const numerosUnicos = new Set();
@@ -305,22 +279,19 @@ function generarNumerosAleatoriosUnicos(max, cantidad) {
   }
   return [...numerosUnicos];
 }
-
 function drawDoors(table, roomDoors) {
   const cells = table.getElementsByTagName('td');
-
   if (roomDoors.includes('left')) {
     // Crea un borde izquierdo en la celda 'd' (segunda columna)
-    cells[3].style.borderLeft = '10px solid #7f4b2b';
+    cells[3].style.borderLeft = '10px solid #6f3b1b';
   }
-
   if (roomDoors.includes('right')) {
     // Crea un borde derecho en la celda 'f' (segunda columna)
-    cells[5].style.borderRight = '10px solid #7f4b2b';
+    cells[5].style.borderRight = '10px solid #6f3b1b';
   }
-
   if (roomDoors.includes('front')) {
     // Crea un borde superior en la celda 'b' (primera fila)
-    cells[1].style.borderTop = '10px solid #7f4b2b';
+    cells[1].style.borderTop = '10px solid #6f3b1b';
   }
+  cells[7].style.borderBottom = '10px solid #6f3b1b';
 }
