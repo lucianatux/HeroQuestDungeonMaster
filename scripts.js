@@ -144,17 +144,17 @@ submitButton.addEventListener("click", (e) => {
   );
 });
 // Configura los eventos de transición de habitaciones
-function setupRoomTransition(btn, from, to, monsters, furnitures) {
-  btn.addEventListener("click", (e) => {
+//function setupRoomTransition(btn, from, to, monsters, furnitures) {
+  nextButton.addEventListener("click", (e) => {
     e.preventDefault();
     const playerLevel = selectedCharacterLevel; 
-    showRoom(from, to);
+    showRoom(missionDetailsDiv, room );
     // Llamando a la función y almacenando la tabla resultante en una variable.
     const roomTable = createRoom(playerLevel, monsters, furnitures);
     // Imprimir la tabla en pantalla
     document.body.appendChild(roomTable);
   });
-}
+//}
 
 //Funciones auxiliares//////////////////////////////////////
 // Función para mostrar una habitación y ocultar otra
@@ -165,12 +165,11 @@ function showRoom(currentRoom, nextRoom) {
 //Funcion que dibuja la habitacion con monstruos y muebles
 function createRoom(playerLevel, monsters, furnitures) {
   const table = createTable();
+  console.log("monsters in createroom" , monsters);
   const roomMonsters = setupMonsters(playerLevel, monsters);
   console.log("roomMonsters " , roomMonsters);
   const roomFurnitures = setupFurnitures(furnitures);
-  console.log("roomFurnitures " + roomFurnitures);
   const roomDoors = setupDoors();
-  console.log("roomDoors " + roomDoors);
   const roomAllElements = roomMonsters.concat(roomFurnitures);
   console.log("habitacion " + roomAllElements);
   // Asignar elementos aleatoriamente a la tabla.
@@ -191,25 +190,35 @@ function createTable() {
   return table;
 }
 // Función que establece la cantidad y el tipo de monstruos en una habitación
-function setupMonsters(level, monsters) {
+function setupMonsters(playerLevel, monsters) {
   const monsterNames = Object.keys(monsters);
-  console.log(monsterNames);
+  const level = parseInt(playerLevel, 10); // Asegura que sea un número base 10
+  console.log("monsterNames ", monsterNames);
   console.log("level en setupmonsters" + level);
-  const generatedMonsters = [];
+  let generatedMonsters = [];
   let numMonsters = 0;
   let probabilities;
   if (level === 1) {
     numMonsters = Math.floor(Math.random() * 4);
     probabilities = [0.25, 0.25, 0.15, 0.15, 0.07, 0.07, 0.04, 0.01, 0.01];
+    console.log("entre en level1");
   } else if (level === 2) {
     numMonsters = Math.floor(Math.random() * 5);
     probabilities = [0.2, 0.2, 0.18, 0.18, 0.09, 0.09, 0.04, 0.01, 0.01];
+    console.log("entre en level2");
+
   } else if (level === 3) {
     numMonsters = Math.floor(Math.random() * 5);
     probabilities = [0.18, 0.18, 0.15, 0.15, 0.11, 0.11, 0.1, 0.01, 0.01];
+    console.log("entre en level3");
+
   } else if (level === 4) {
     numMonsters = Math.floor(Math.random() * 6);
     probabilities = [0.14, 0.14, 0.15, 0.15, 0.15, 0.15, 0.1, 0.01, 0.01];
+    console.log("entre en level4");
+
+  } else{
+    console.log("no entre");
   }
   for (let i = 0; i < numMonsters; i++) {
     let rand = Math.random();
@@ -298,10 +307,10 @@ function generarNumerosAleatoriosUnicos(max, cantidad) {
   return [...numerosUnicos];
 }
 
-setupRoomTransition(
+/*setupRoomTransition(
   nextButton,
   missionDetailsDiv,
   room,
   monsters,
   furnitures
-);
+);*/
