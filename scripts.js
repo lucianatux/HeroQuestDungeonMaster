@@ -7,6 +7,7 @@ const missionPurpose = document.getElementById("mission-purpose");
 const noteone = document.getElementById("note-one");
 const notetwo = document.getElementById("note-two");
 const notethree = document.getElementById("note-three");
+const final = document.getElementById("final");
 const submitButton = document.querySelector(".submit");
 const characterLevelSelect = document.getElementById("characterLevel");
 const missionSelect = document.getElementById("mission");
@@ -17,6 +18,11 @@ let selectedCharacterLevel;
 let selectedMission;
 let counter = 0;
 let currentRoomTable = null; // Variable para llevar un registro de la habitación actual
+const momentNote1 = Math.floor(Math.random() * 3) + 2;  // Números aleatorios entre 2 y 4
+const momentNote2 = Math.floor(Math.random() * 3) + 5;  // Números aleatorios entre 5 y 7
+const momentNote3 = Math.floor(Math.random() * 3) + 8;  // Números aleatorios entre 8 y 10
+console.log(momentNote1, momentNote2, momentNote3);
+
 
 const missions = {
   1: {
@@ -26,6 +32,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
   2: {
     title: "Misión 2: Título: La Caza del Dragón",
@@ -34,6 +41,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
   3: {
     title: "mision 3",
@@ -41,6 +49,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
   4: {
     title: "mision 4",
@@ -48,6 +57,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
   5: {
     title: "mision 5",
@@ -55,6 +65,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
   6: {
     title: "mision 6",
@@ -62,6 +73,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
   7: {
     title: "mision 7",
@@ -69,6 +81,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
   8: {
     title: "mision 8",
@@ -76,6 +89,7 @@ const missions = {
     note1: "This is note1",
     note2: "This is note2",
     note3: "This is note3",
+    final: "This is the final",
   },
 };
 
@@ -123,6 +137,7 @@ submitButton.addEventListener("click", (e) => {
       noteone.textContent = selectedMissionInfo.note1;
       notetwo.textContent = selectedMissionInfo.note2;
       notethree.textContent = selectedMissionInfo.note3;
+      final.textContent = selectedMissionInfo.final;
       screenDiv.style.display = "none";
       missionInfoDiv.style.display = "block";
     } else {
@@ -152,11 +167,16 @@ submitButton.addEventListener("click", (e) => {
     setupRoom(selectedCharacterLevel, monsters, furnitures);
   });
 
+
 tonextroom.addEventListener("click", (e) => {
   e.preventDefault();
   destroyRoom(); // Llama a la función para destruir la habitación actual
-  setupRoom(selectedCharacterLevel, monsters, furnitures);
+  // Luego, después de cerrar la alerta, llama a setupRoom
+  setTimeout(() => {
+    setupRoom(selectedCharacterLevel, monsters, furnitures);
+  }, 0);
 });
+
 // Función para destruir la habitación actual
 function destroyRoom() {
   if (currentRoomTable) {
@@ -165,6 +185,7 @@ function destroyRoom() {
 }
 function setupRoom(level, monsters, furnitures) {
   counter = counter + 1;
+  showMissionMessage(); // Muestra el mensaje
   console.log("counter: ", counter);
   const roomTable = createRoom(level, monsters, furnitures);
   document.body.appendChild(roomTable);
@@ -309,4 +330,17 @@ function drawDoors(table, roomDoors) {
   }
   cells[7].style.borderBottom = '10px solid #6f3b1b';
 }
+function showMissionMessage() {
+  if (counter == momentNote1) {
+    alert("Mensaje: " + noteone.textContent);
+  } else if (counter == momentNote2) {
+    alert("Mensaje: " + notetwo.textContent);
+  } else if (counter == momentNote3) {
+    alert("Mensaje: " + notethree.textContent);
+  }
+  if (counter == 11){
+    alert("Mensaje: " + final.textContent);
+  }
+}
+
 
