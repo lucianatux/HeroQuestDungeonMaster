@@ -1,7 +1,7 @@
 //Constantes y Variables Globales//////////////////////////////////////////
 // referencias a los elementos del DOM
 const screenDiv = document.querySelector(".screen");
-const missionDetailsDiv = document.querySelector(".mission-info");
+const missionInfoDiv = document.querySelector(".mission-info");
 const missionTitle = document.getElementById("mission-title");
 const missionPurpose = document.getElementById("mission-purpose");
 const noteone = document.getElementById("note-one");
@@ -15,6 +15,9 @@ const room = document.querySelector(".room");
 const tonextroom = document.querySelector("#tonextroom");
 let selectedCharacterLevel;
 let selectedMission;
+let counter = 0;
+let currentRoomTable = null; // Variable para llevar un registro de la habitación actual
+
 
 const missions = {
   1: {
@@ -107,6 +110,7 @@ const monsters = {
   gargoyle: 5,
 };
 
+
 ////////////Controladores de eventos////////////////////////////
 /* controlador de eventos al botón "Submit" verifica que se haya completado el formulario
 y muestra el titulo de la mision y el objetivo */
@@ -123,7 +127,7 @@ submitButton.addEventListener("click", (e) => {
       notetwo.textContent = selectedMissionInfo.note2;
       notethree.textContent = selectedMissionInfo.note3;
       screenDiv.style.display = "none";
-      missionDetailsDiv.style.display = "block";
+      missionInfoDiv.style.display = "block";
     } else {
       alert("Misión no encontrada");
     }
@@ -144,17 +148,34 @@ submitButton.addEventListener("click", (e) => {
   );
 });
 // Configura los eventos de transición de habitaciones
-//function setupRoomTransition(btn, from, to, monsters, furnitures) {
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
-    const playerLevel = selectedCharacterLevel; 
-    showRoom(missionDetailsDiv, room );
-    // Llamando a la función y almacenando la tabla resultante en una variable.
-    const roomTable = createRoom(playerLevel, monsters, furnitures);
-    // Imprimir la tabla en pantalla
-    document.body.appendChild(roomTable);
+    showRoom(missionInfoDiv, room);
+    console.log(selectedCharacterLevel);
+    setupRoom(selectedCharacterLevel, monsters, furnitures);
   });
-//}
+
+tonextroom.addEventListener("click", (e) => {
+  e.preventDefault();
+  destroyRoom(); // Llama a la función para destruir la habitación actual
+  setupRoom(selectedCharacterLevel, monsters, furnitures);
+});
+
+// Función para destruir la habitación actual
+function destroyRoom() {
+  if (currentRoomTable) {
+    currentRoomTable.remove(); // Elimina la tabla que representa la habitación actual
+  }
+}
+
+function setupRoom(level, monsters, furnitures) {
+  counter = counter + 1;
+  console.log("counter: ", counter);
+  const roomTable = createRoom(level, monsters, furnitures);
+  document.body.appendChild(roomTable);
+  currentRoomTable = roomTable; // Actualiza la variable con la nueva habitación
+}
+
 
 //Funciones auxiliares//////////////////////////////////////
 // Función para mostrar una habitación y ocultar otra
@@ -172,6 +193,8 @@ function createRoom(playerLevel, monsters, furnitures) {
   // Asignar elementos aleatoriamente a la tabla.
   asignarElementosAleatoriosATabla(table, roomAllElements);
   drawDoors(table, roomDoors);
+  console.log(noteone);
+
   return table;
 }
 // Función para crear una tabla de 3x3
@@ -295,3 +318,4 @@ function drawDoors(table, roomDoors) {
   }
   cells[7].style.borderBottom = '10px solid #6f3b1b';
 }
+
