@@ -8,6 +8,10 @@ const noteone = document.getElementById("note-one");
 const notetwo = document.getElementById("note-two");
 const notethree = document.getElementById("note-three");
 const final = document.getElementById("final");
+const note1Div = document.getElementById("note1Div");
+const note2Div = document.getElementById("note2Div");
+const note3Div = document.getElementById("note3Div");
+const finalDiv = document.getElementById("finalDiv");
 const submitButton = document.querySelector(".submit");
 const characterLevelSelect = document.getElementById("characterLevel");
 const missionSelect = document.getElementById("mission");
@@ -166,8 +170,6 @@ submitButton.addEventListener("click", (e) => {
     console.log(selectedCharacterLevel);
     setupRoom(selectedCharacterLevel, monsters, furnitures);
   });
-
-
 tonextroom.addEventListener("click", (e) => {
   e.preventDefault();
   destroyRoom(); // Llama a la función para destruir la habitación actual
@@ -176,7 +178,6 @@ tonextroom.addEventListener("click", (e) => {
     setupRoom(selectedCharacterLevel, monsters, furnitures);
   }, 0);
 });
-
 // Función para destruir la habitación actual
 function destroyRoom() {
   if (currentRoomTable) {
@@ -332,14 +333,18 @@ function drawDoors(table, roomDoors) {
 }
 function showMissionMessage() {
   if (counter == momentNote1) {
+    note1Div.style.display = 'block';
     noteone.style.display = "block";
   } else if (counter == momentNote2) {
+    note2Div.style.display = 'block';
     notetwo.style.display = "block";
   } else if (counter == momentNote3) {
+    note3Div.style.display = "block";
     notethree.style.display = "block";
   }
   if (counter == 11){
-    final.style.display = "block"
+    finalDiv.style.display = "block";
+    final.style.display = "block";
   }
 }
 
