@@ -111,6 +111,7 @@ td {
   background-size: cover;
 }
 #tonextroom {
+  margin-bottom: 20px;
   position: absolute;
   bottom: 0;
   left: 50%;
