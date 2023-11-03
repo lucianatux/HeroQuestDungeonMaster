@@ -118,6 +118,8 @@ td {
   transform: translateX(-50%); /* Centra horizontalmente el botón en relación al ancho de la pantalla */
 }
 
+
+
 @media (max-width: 768px) {
   body {
     font-size: 16px;

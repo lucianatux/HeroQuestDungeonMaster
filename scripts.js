@@ -332,14 +332,14 @@ function drawDoors(table, roomDoors) {
 }
 function showMissionMessage() {
   if (counter == momentNote1) {
-    alert("Mensaje: " + noteone.textContent);
+    noteone.style.display = "block";
   } else if (counter == momentNote2) {
-    alert("Mensaje: " + notetwo.textContent);
+    notetwo.style.display = "block";
   } else if (counter == momentNote3) {
-    alert("Mensaje: " + notethree.textContent);
+    notethree.style.display = "block";
   }
   if (counter == 11){
-    alert("Mensaje: " + final.textContent);
+    final.style.display = "block"
   }
 }
 

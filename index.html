@@ -35,11 +35,69 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link text-light dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >Note 1
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item">
+                    <div id="note-one" class="note" style="display: none">
+                    </div>
+                  </div>
+                </div>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link text-light dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >Note 2
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item">
+                    <div id="note-two" class="note" style="display: none">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link text-light dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >Note 3
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item">
+                    <div id="note-three" class="note" style="display: none">
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link text-light dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >Final
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item">
+                    <div id="final" class="note" style="display: none">
+                    </div>
+                  </div>
+                </div>
               </li>
               <li class="nav-item dropdown">
                 <a
@@ -65,6 +123,7 @@
         </div>
       </nav>
     </header>
+    
     <div class="screen">
       <div class="title">
         <img class="dungeon-master" src="./dungeons/master.jpg" alt="" />
@@ -114,13 +173,9 @@
       <p id="mission-purpose"></p>
       <button id="next">Next</button>
     </div>
-    <div id="note-one" style="display: none"></div>
-    <div id="note-two" style="display: none"></div>
-    <div id="note-three" style="display: none"></div>
     <div class="room" style="display: none">
       <button id="tonextroom">Next</button>
     </div>
-    <div id="final" style="display: none"></div>
 
     <script src="scripts.js"></script>
     <script
