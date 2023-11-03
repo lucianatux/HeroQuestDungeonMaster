@@ -18,7 +18,6 @@ let selectedMission;
 let counter = 0;
 let currentRoomTable = null; // Variable para llevar un registro de la habitación actual
 
-
 const missions = {
   1: {
     title: "Misión 1: El Comienzo",
@@ -109,8 +108,6 @@ const monsters = {
   dreadSorcerer: 5,
   gargoyle: 5,
 };
-
-
 ////////////Controladores de eventos////////////////////////////
 /* controlador de eventos al botón "Submit" verifica que se haya completado el formulario
 y muestra el titulo de la mision y el objetivo */
@@ -160,14 +157,12 @@ tonextroom.addEventListener("click", (e) => {
   destroyRoom(); // Llama a la función para destruir la habitación actual
   setupRoom(selectedCharacterLevel, monsters, furnitures);
 });
-
 // Función para destruir la habitación actual
 function destroyRoom() {
   if (currentRoomTable) {
     currentRoomTable.remove(); // Elimina la tabla que representa la habitación actual
   }
 }
-
 function setupRoom(level, monsters, furnitures) {
   counter = counter + 1;
   console.log("counter: ", counter);
@@ -175,8 +170,6 @@ function setupRoom(level, monsters, furnitures) {
   document.body.appendChild(roomTable);
   currentRoomTable = roomTable; // Actualiza la variable con la nueva habitación
 }
-
-
 //Funciones auxiliares//////////////////////////////////////
 // Función para mostrar una habitación y ocultar otra
 function showRoom(currentRoom, nextRoom) {
@@ -193,8 +186,6 @@ function createRoom(playerLevel, monsters, furnitures) {
   // Asignar elementos aleatoriamente a la tabla.
   asignarElementosAleatoriosATabla(table, roomAllElements);
   drawDoors(table, roomDoors);
-  console.log(noteone);
-
   return table;
 }
 // Función para crear una tabla de 3x3
