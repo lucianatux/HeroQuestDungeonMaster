@@ -11,6 +11,7 @@ const noteone = document.getElementById("note-one");
 const notetwo = document.getElementById("note-two");
 const notethree = document.getElementById("note-three");
 const final = document.getElementById("final");
+const missionDiv = document.getElementById("missionDiv");
 const note1Div = document.getElementById("note1Div");
 const note2Div = document.getElementById("note2Div");
 const note3Div = document.getElementById("note3Div");
@@ -33,45 +34,7 @@ const musicPlayer = document.getElementById("music-player");
 const playPauseButton = document.querySelector(".play-pause");
 const nextMusicButton = document.querySelector(".next-music");
 const musicTitle = document.querySelector(".music-title");
-console.log("music title text:", musicTitle.textContent);
-console.log("music player paused:", musicPlayer.paused);
-console.log("next music button:", nextMusicButton.textContent);
-console.log("play pause button:", playPauseButton.textContent);
-
-
 let currentTrack = 0; // Índice de la pista actual
-
-function playPauseMusic() {
-  if (musicPlayer.paused) {
-    musicPlayer.play().then(() => {
-      playPauseButton.textContent = "❚❚"; // Cambia el botón a pausa
-      console.log("Reproduciendo música");
-    }).catch(error => {
-      console.error("Error al reproducir música:", error);
-    });
-  } else {
-    musicPlayer.pause();
-    playPauseButton.textContent = "▶"; // Cambia el botón a reproducir
-    console.log("Pausando música");
-  }
-}
-
-function nextMusic() {
-  currentTrack = (currentTrack + 1) % musicPlayer.children.length;
-  musicPlayer.src = musicPlayer.children[currentTrack].src;
-  playPauseMusic();
-  updateMusicTitle();
-  console.log("Cambiando a la siguiente pista");
-}
-
-function updateMusicTitle() {
-  musicTitle.textContent = `Música ${currentTrack + 1}`;
-}
-
-playPauseButton.addEventListener("click", playPauseMusic);
-nextMusicButton.addEventListener("click", nextMusic);
-updateMusicTitle();
-
 
 
 const missions = {
@@ -212,6 +175,7 @@ submitButton.addEventListener("click", (e) => {
 // Configura los eventos de transición de habitaciones
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
+    missionDiv.style.display = "block";
     showRoom(missionInfoDiv, room);
     console.log(selectedCharacterLevel);
     setupRoom(selectedCharacterLevel, monsters, furnitures);
@@ -224,6 +188,8 @@ tonextroom.addEventListener("click", (e) => {
     setupRoom(selectedCharacterLevel, monsters, furnitures);
   }, 0);
 });
+
+//Funciones auxiliares//////////////////////////////////////
 // Función para destruir la habitación actual
 function destroyRoom() {
   if (currentRoomTable) {
@@ -238,7 +204,6 @@ function setupRoom(level, monsters, furnitures) {
   document.body.appendChild(roomTable);
   currentRoomTable = roomTable; // Actualiza la variable con la nueva habitación
 }
-//Funciones auxiliares//////////////////////////////////////
 // Función para mostrar una habitación y ocultar otra
 function showRoom(currentRoom, nextRoom) {
   currentRoom.style.display = "none";
@@ -393,5 +358,39 @@ function showMissionMessage() {
     final.style.display = "block";
   }
 }
+
+//////////////////////////////*Musica*/////////////
+function playPauseMusic() {
+  if (musicPlayer.paused) {
+    musicPlayer.play().then(() => {
+      playPauseButton.textContent = "❚❚"; // Cambia el botón a pausa
+      console.log("Reproduciendo música");
+    }).catch(error => {
+      console.error("Error al reproducir música:", error);
+    });
+  } else {
+    musicPlayer.pause();
+    playPauseButton.textContent = "▶"; // Cambia el botón a reproducir
+    console.log("Pausando música");
+  }
+}
+
+function nextMusic() {
+  currentTrack = (currentTrack + 1) % musicPlayer.children.length;
+  musicPlayer.src = musicPlayer.children[currentTrack].src;
+  playPauseMusic();
+  updateMusicTitle();
+  console.log("Cambiando a la siguiente pista");
+}
+
+function updateMusicTitle() {
+  musicTitle.textContent = `Música ${currentTrack + 1}`;
+}
+
+playPauseButton.addEventListener("click", playPauseMusic);
+nextMusicButton.addEventListener("click", nextMusic);
+updateMusicTitle();
+
+
 
 });

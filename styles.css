@@ -96,8 +96,7 @@ label {
   margin-top: 10px;
 }
 select {
-  margin-bottom: 15px;
-  margin-top: 5px;
+  margin: 5px, 10px, 15px, 10px;
   padding: 10px;
   background-color: lightgray;
 }
@@ -137,8 +136,8 @@ table {
   margin-top: 100px; 
 }
 td {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   text-align: center;
   vertical-align: middle;
   border: 1px solid #000; /* Borde para cada celda */
@@ -184,9 +183,12 @@ td {
     font-size: 16px;
   }
   td {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     font-size: 12px;
+  }
+  .screen{
+    margin: 20px auto;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
