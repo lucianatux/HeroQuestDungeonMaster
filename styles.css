@@ -166,6 +166,37 @@ td {
 #next:hover{
   background: radial-gradient(#0bbedd, #042c5d);
 }
+.note {
+  background-image: url(./dungeons/pergam1.png) ;
+  background-repeat: no-repeat;
+  background-size: contain;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 20px;
+  color: #111;
+  padding: 5%;
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+}
+#mission-note-text{
+  margin: 30% 15%;
+  word-wrap: break-word; /* Rompe las palabras largas si no caben en el contenedor */
+  max-width: 100%; /* Evita que el texto se extienda más allá del ancho del contenedor */
+  text-align: center; /* Centra el texto horizontalmente */
+}
+.buttonsDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+
 
 @media (max-width: 768px) {
   body {

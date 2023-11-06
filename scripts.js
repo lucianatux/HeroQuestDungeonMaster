@@ -7,6 +7,8 @@ const screenDiv = document.querySelector(".screen");
 const missionInfoDiv = document.querySelector(".mission-info");
 const missionTitle = document.getElementById("mission-title");
 const missionPurpose = document.getElementById("mission-purpose");
+const missionNote = document.getElementById("mission-note");
+const missionNoteText = document.getElementById("mission-note-text");
 const noteone = document.getElementById("note-one");
 const notetwo = document.getElementById("note-two");
 const notethree = document.getElementById("note-three");
@@ -147,6 +149,7 @@ submitButton.addEventListener("click", (e) => {
     if (selectedMissionInfo) {
       missionTitle.textContent = selectedMissionInfo.title;
       missionPurpose.textContent = selectedMissionInfo.purpose;
+      missionNoteText.textContent = selectedMissionInfo.purpose;
       noteone.textContent = selectedMissionInfo.note1;
       notetwo.textContent = selectedMissionInfo.note2;
       notethree.textContent = selectedMissionInfo.note3;
@@ -187,6 +190,9 @@ tonextroom.addEventListener("click", (e) => {
   setTimeout(() => {
     setupRoom(selectedCharacterLevel, monsters, furnitures);
   }, 0);
+});
+missionDiv.addEventListener("click", (e) => {
+missionNote.style.display = "block";
 });
 
 //Funciones auxiliares//////////////////////////////////////
