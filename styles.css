@@ -19,6 +19,7 @@ body {
   position: fixed;
   top: 0;
   display: flex;
+  z-index: 999;
 }
 .navBar .music,
 .navBar .parchment,
@@ -42,6 +43,12 @@ body {
 .music:hover {
   background: radial-gradient(#042c5d, #0bbedd, #042c5d);
 }
+.music-title{
+  color:dimgray;
+  justify-self: center;
+  margin-top: 10px;
+  padding-left: 5px;
+}
 .parchment{
   width: 40px;
   height: 40px;
@@ -56,13 +63,13 @@ body {
 
 /*screen///////////////////////////////////////*/
 .screen {
-  background-color: #111;
   border-radius: 20px;
   box-shadow: 0 0 20px #111;
   padding: 5px;
   margin: 5px;
   text-align: center;
   margin-top: 80px;
+  z-index: 1;
 }
 .dungeon-master {
   margin: 30px;
@@ -142,7 +149,7 @@ td {
     url("./dungeons/tile5.jpeg");
   background-size: contain;
 }
-#tonextroom {
+#tonextroom, #next {
   margin-bottom: 20px;
   position: absolute;
   bottom: 0;
@@ -151,8 +158,14 @@ td {
     -50%
   ); 
   background: linear-gradient(#042c5d, #0bbedd);
-  border-radius: 10px;
   padding: 10px;
+  border-radius: 5px;
+}
+#tonextroom:hover{
+  background: radial-gradient(#0bbedd, #042c5d);
+}
+#next:hover{
+  background: radial-gradient(#0bbedd, #042c5d);
 }
 
 @media (max-width: 768px) {
@@ -178,8 +191,8 @@ td {
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   td{
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     font-size: 16px;
   }
 }
