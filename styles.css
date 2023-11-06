@@ -53,6 +53,7 @@ body {
   height: 45px;
 }
 
+
 /*screen///////////////////////////////////////*/
 .screen {
   background-color: #111;
@@ -61,6 +62,7 @@ body {
   padding: 5px;
   margin: 5px;
   text-align: center;
+  margin-top: 80px;
 }
 .dungeon-master {
   margin: 30px;
@@ -147,7 +149,10 @@ td {
   left: 50%;
   transform: translateX(
     -50%
-  ); /* Centra horizontalmente el botón en relación al ancho de la pantalla */
+  ); 
+  background: linear-gradient(#042c5d, #0bbedd);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 @media (max-width: 768px) {

@@ -20,8 +20,9 @@
   <body>
     <header>
       <div class="navBar">
-            <button class="music play-pause">&#9654;</button>
-            <button class="music next-music">&#9654;|</button>
+            <button class="music play-pause" type="button">&#9654;</button>
+            <button class="music next-music" type="button">&#9654;|</button>
+            <p class="music-title"></p>
             <div id="note1Div" style="display: none">
               <img
                 src="./dungeons/perg2.png"
@@ -52,6 +53,13 @@
             </div>
           </div>
     </header>
+    <audio id="music-player">
+      <source src="./musicaInstrumental/musica1.mp3" type="audio/mpeg">
+      <source src="./musicaInstrumental/musica2.mp3" type="audio/mpeg">
+      <source src="./musicaInstrumental/musica3.mp3" type="audio/mpeg">
+      <source src="./musicaInstrumental/musica4.mp3" type="audio/mpeg">
+      Tu navegador no admite la reproducción de audio.
+    </audio>
     <div class="notesAndFinal">
       <div id="note-one" class="note" style="display: none"></div>
       <div id="note-two" class="note" style="display: none"></div>

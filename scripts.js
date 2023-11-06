@@ -1,3 +1,6 @@
+document.addEventListener("DOMContentLoaded", function () {
+
+
 //Constantes y Variables Globales//////////////////////////////////////////
 // referencias a los elementos del DOM
 const screenDiv = document.querySelector(".screen");
@@ -26,6 +29,49 @@ const momentNote1 = Math.floor(Math.random() * 3) + 2;  // Números aleatorios e
 const momentNote2 = Math.floor(Math.random() * 3) + 5;  // Números aleatorios entre 5 y 7
 const momentNote3 = Math.floor(Math.random() * 3) + 8;  // Números aleatorios entre 8 y 10
 console.log(momentNote1, momentNote2, momentNote3);
+const musicPlayer = document.getElementById("music-player");
+const playPauseButton = document.querySelector(".play-pause");
+const nextMusicButton = document.querySelector(".next-music");
+const musicTitle = document.querySelector(".music-title");
+console.log("music title text:", musicTitle.textContent);
+console.log("music player paused:", musicPlayer.paused);
+console.log("next music button:", nextMusicButton.textContent);
+console.log("play pause button:", playPauseButton.textContent);
+
+
+let currentTrack = 0; // Índice de la pista actual
+
+function playPauseMusic() {
+  if (musicPlayer.paused) {
+    musicPlayer.play().then(() => {
+      playPauseButton.textContent = "❚❚"; // Cambia el botón a pausa
+      console.log("Reproduciendo música");
+    }).catch(error => {
+      console.error("Error al reproducir música:", error);
+    });
+  } else {
+    musicPlayer.pause();
+    playPauseButton.textContent = "▶"; // Cambia el botón a reproducir
+    console.log("Pausando música");
+  }
+}
+
+function nextMusic() {
+  currentTrack = (currentTrack + 1) % musicPlayer.children.length;
+  musicPlayer.src = musicPlayer.children[currentTrack].src;
+  playPauseMusic();
+  updateMusicTitle();
+  console.log("Cambiando a la siguiente pista");
+}
+
+function updateMusicTitle() {
+  musicTitle.textContent = `Música ${currentTrack + 1}`;
+}
+
+playPauseButton.addEventListener("click", playPauseMusic);
+nextMusicButton.addEventListener("click", nextMusic);
+updateMusicTitle();
+
 
 
 const missions = {
@@ -348,4 +394,4 @@ function showMissionMessage() {
   }
 }
 
-
+});
