@@ -5,7 +5,6 @@ body {
   background-position: center;
   margin: 10px;
   padding: 0;
-  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -16,22 +15,22 @@ body {
   display: none;
 }
 /*header////////////////////////////////*/
-.navbar {
+.navBar {
   position: fixed;
   top: 0;
+  display: flex;
 }
-.nav-link,
-.brand {
-  color: #fff;
+.navBar .music,
+.navBar .parchment,
+.navBar .note {
+  display: inline-block;
 }
-.nav-link:hover {
-  color: #fff;
-  text-shadow: 5px 5px 10px #000;
-}
+
 .music {
   width: 40px;
   height: 40px;
   padding: 5px;
+  margin: 5px;
   font-size: 16px;
   border: none;
   background: radial-gradient(#042c5d, #0bbedd);
@@ -46,7 +45,12 @@ body {
 .parchment{
   width: 40px;
   height: 40px;
-  margin-left: 20px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.parchment:hover{
+  width: 45px;
+  height: 45px;
 }
 
 /*screen///////////////////////////////////////*/
@@ -120,6 +124,8 @@ option {
 table {
   border-collapse: collapse;
   box-shadow: 0 0 30px #000;
+  margin: 0 auto; 
+  margin-top: 100px; 
 }
 td {
   width: 200px;
@@ -128,12 +134,11 @@ td {
   vertical-align: middle;
   border: 1px solid #000; /* Borde para cada celda */
   font-size: 24px;
-  background-color: #f0f0f0aa;
   color: #fff;
   text-shadow: 5px 5px 8px #000;
   background: linear-gradient(#00000005, #00000005),
     url("./dungeons/tile5.jpeg");
-  background-size: cover;
+  background-size: contain;
 }
 #tonextroom {
   margin-bottom: 20px;
@@ -161,7 +166,15 @@ td {
     font-size: 16px;
   }
   td {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+    font-size: 12px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  td{
+    width: 120px;
+    height: 120px;
+    font-size: 16px;
   }
 }

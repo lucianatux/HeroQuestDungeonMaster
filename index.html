@@ -19,108 +19,53 @@
   </head>
   <body>
     <header>
-      
-      <nav class="navbar navbar-expand-lg bg-body-dark">
-        
-        <div class="container-fluid">
-          <div>
+      <div class="navBar">
             <button class="music play-pause">&#9654;</button>
             <button class="music next-music">&#9654;|</button>
+            <div id="note1Div" style="display: none">
+              <img
+                src="./dungeons/perg2.png"
+                alt="parchment"
+                class="parchment"
+              />
+            </div>
+            <div id="note2Div" style="display: none">
+              <img
+                src="./dungeons/perg2.png"
+                alt="parchment"
+                class="parchment"
+              />
+            </div>
+            <div id="note3Div" style="display: none">
+              <img
+                src="./dungeons/perg2.png"
+                alt="parchment"
+                class="parchment"
+              />
+            </div>
+            <div id="finalDiv" style="display: none">
+              <img
+                src="./dungeons/victory4.png"
+                alt="parchment"
+                class="parchment"
+              />
+            </div>
           </div>
-          <div>
-            <img src="./dungeons/perg2.png" alt="parchment" class="parchment" />
-            <img src="./dungeons/perg2.png" alt="parchment" class="parchment" />
-            <img src="./dungeons/perg2.png" alt="parchment" class="parchment" />
-            <img src="./dungeons/victory4.png" alt="parchment" class="parchment" />
-          </div>
-          <a class="navbar-brand brand text-light" href="#"></a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown" id="note1Div" style="display: none">
-                <a 
-                  class="nav-link text-light dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >Note 1
-                </a>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item">
-                    <div id="note-one" class="note" style="display: none">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-item dropdown" id="note2Div" style="display: none">
-                <a
-                  class="nav-link text-light dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >Note 2
-                </a>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item">
-                    <div id="note-two" class="note" style="display: none">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-item dropdown" id="note3Div" style="display: none">
-                <a
-                  class="nav-link text-light dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >Note 3
-                </a>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item">
-                    <div id="note-three" class="note" style="display: none">
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-item dropdown" id="finalDiv" style="display: none">
-                <a
-                  class="nav-link text-light dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >Final
-                </a>
-                <div class="dropdown-menu">
-                  <div class="dropdown-item">
-                    <div id="final" class="note" style="display: none">
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
     </header>
-    
+    <div class="notesAndFinal">
+      <div id="note-one" class="note" style="display: none"></div>
+      <div id="note-two" class="note" style="display: none"></div>
+      <div id="note-three" class="note" style="display: none"></div>
+      <div id="final" class="note" style="display: none"></div>
+    </div>
+
     <div class="screen">
       <div class="title">
         <img class="dungeon-master" src="./dungeons/master.jpg" alt="" />
-        <h5 class="text">Hero Quest <br/> Dungeon Master</h5>
+        <h5 class="text">
+          Hero Quest <br />
+          Dungeon Master
+        </h5>
       </div>
       <form action="">
         <fieldset>
