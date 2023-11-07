@@ -33,35 +33,35 @@
         
               Tu navegador no admite la reproducción de audio.
             </audio>
-            <div id="missionDiv" style="display: none">
+            <div id="missionDiv" class="custom-button" style="display: none">
               <img
                 src="./dungeons/mission.png"
                 alt="parchment"
                 class="parchment"
               />
             </div>
-            <div id="note1Div" style="display: none">
+            <div id="note1Div" class="custom-button" style="display: none">
               <img
                 src="./dungeons/perg2.png"
                 alt="parchment"
                 class="parchment"
               />
             </div>
-            <div id="note2Div" style="display: none">
+            <div id="note2Div" class="custom-button" style="display: none">
               <img
                 src="./dungeons/perg2.png"
                 alt="parchment"
                 class="parchment"
               />
             </div>
-            <div id="note3Div" style="display: none">
+            <div id="note3Div" class="custom-button" style="display: none">
               <img
                 src="./dungeons/perg2.png"
                 alt="parchment"
                 class="parchment"
               />
             </div>
-            <div id="finalDiv" style="display: none">
+            <div id="finalDiv" class="custom-button" style="display: none">
               <img
                 src="./dungeons/victory4.png"
                 alt="parchment"
@@ -71,41 +71,11 @@
           </div>
     </header>
     <div class="notesAndFinal">
-      <div id="mission-note" class="note" style="display: none">
-        <div id="mission-note-text"></div>
-        <div class="buttonsDiv">
-          <button type="button" class="voiceButton btn"> &#128266;</button>
-          <button type="button" class="closeButton btn" id="closeMission">X</button> 
-        </div>
-      </div>
-      <div id="note-one" class="note" style="display: none">
-        <div id="noteone-text"></div>
-        <div class="buttonsDiv">
-          <button type="button" class="voiceButton btn"> &#128266;</button>
-          <button type="button" class="closeButton btn" id="closeNoteOne">X</button> 
-        </div>
-      </div>
-      <div id="note-two" class="note" style="display: none">
-        <div id="notetwo-text"></div>
-        <div class="buttonsDiv">
-          <button type="button" class="voiceButton btn"> &#128266;</button>
-          <button type="button" class="closeButton btn" id="closeNoteTwo">X</button> 
-        </div>
-      </div>
-      <div id="note-three" class="note" style="display: none">
-        <div id="notethree-text"></div>
-        <div class="buttonsDiv">
-          <button type="button" class="voiceButton btn"> &#128266;</button>
-          <button type="button" class="closeButton btn" id="closeNoteThree">X</button> 
-        </div>
-      </div>
-      <div id="final" class="note" style="display: none">
-        <div id="finalnote-text"></div>
-        <div class="buttonsDiv">
-          <button type="button" class="voiceButton btn"> &#128266;</button>
-          <button type="button" class="closeButton btn" id="closeFinal">X</button> 
-        </div>
-      </div>
+      <div id="mission-note" class="note" style="display: none"></div>
+      <div id="note-one" class="note" style="display: none"></div>
+      <div id="note-two" class="note" style="display: none"></div>
+      <div id="note-three" class="note" style="display: none"></div>
+      <div id="final" class="note" style="display: none"></div>
     </div>
 
     <div class="screen">
@@ -158,6 +128,7 @@
     <div class="mission-info" style="display: none">
       <h1 id="mission-title"></h1>
       <p id="mission-purpose"></p>
+      <button type="button" class="voiceButton btn"> &#128266;</button>
       <button id="next">Next</button>
     </div>
     <div class="room" style="display: none">

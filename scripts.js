@@ -1,18 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-
-//Constantes y Variables Globales//////////////////////////////////////////
-// referencias a los elementos del DOM
+//Constantes y Variables Globales. Referencias a los elementos del DOM
 const screenDiv = document.querySelector(".screen");
 const missionInfoDiv = document.querySelector(".mission-info");
+//constantes que almacenan los datos de la misión//
 const missionTitle = document.getElementById("mission-title");
 const missionPurpose = document.getElementById("mission-purpose");
-const missionNote = document.getElementById("mission-note");
-const missionNoteText = document.getElementById("mission-note-text");
 const noteone = document.getElementById("note-one");
 const notetwo = document.getElementById("note-two");
 const notethree = document.getElementById("note-three");
 const final = document.getElementById("final");
+////////////////////////////////////////////////////////
 const missionDiv = document.getElementById("missionDiv");
 const note1Div = document.getElementById("note1Div");
 const note2Div = document.getElementById("note2Div");
@@ -24,14 +22,17 @@ const missionSelect = document.getElementById("mission");
 const nextButton = document.getElementById("next");
 const room = document.querySelector(".room");
 const tonextroom = document.querySelector("#tonextroom");
+
 let selectedCharacterLevel;
 let selectedMission;
-let counter = 0;
+let counter = 0; 
 let currentRoomTable = null; // Variable para llevar un registro de la habitación actual
 const momentNote1 = Math.floor(Math.random() * 3) + 2;  // Números aleatorios entre 2 y 4
 const momentNote2 = Math.floor(Math.random() * 3) + 5;  // Números aleatorios entre 5 y 7
 const momentNote3 = Math.floor(Math.random() * 3) + 8;  // Números aleatorios entre 8 y 10
 console.log(momentNote1, momentNote2, momentNote3);
+
+//MUSIC
 const musicPlayer = document.getElementById("music-player");
 const playPauseButton = document.querySelector(".play-pause");
 const nextMusicButton = document.querySelector(".next-music");
@@ -149,7 +150,6 @@ submitButton.addEventListener("click", (e) => {
     if (selectedMissionInfo) {
       missionTitle.textContent = selectedMissionInfo.title;
       missionPurpose.textContent = selectedMissionInfo.purpose;
-      missionNoteText.textContent = selectedMissionInfo.purpose;
       noteone.textContent = selectedMissionInfo.note1;
       notetwo.textContent = selectedMissionInfo.note2;
       notethree.textContent = selectedMissionInfo.note3;
@@ -175,7 +175,7 @@ submitButton.addEventListener("click", (e) => {
       selectedMissionInfo.note1
   );
 });
-// Configura los eventos de transición de habitaciones
+// Configura los eventos de transición de la misión a la primer habitación
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
     missionDiv.style.display = "block";
@@ -183,6 +183,7 @@ submitButton.addEventListener("click", (e) => {
     console.log(selectedCharacterLevel);
     setupRoom(selectedCharacterLevel, monsters, furnitures);
   });
+  // Configura los eventos de transición de habitaciones
 tonextroom.addEventListener("click", (e) => {
   e.preventDefault();
   destroyRoom(); // Llama a la función para destruir la habitación actual
@@ -191,9 +192,59 @@ tonextroom.addEventListener("click", (e) => {
     setupRoom(selectedCharacterLevel, monsters, furnitures);
   }, 0);
 });
-missionDiv.addEventListener("click", (e) => {
-missionNote.style.display = "block";
+
+// Función para mostrar un mensaje personalizado
+function showMessage(title, message) {
+    const messageContainer = document.createElement("div");
+    messageContainer.className = "message-container";
+
+    const messageBox = document.createElement("div");
+    messageBox.className = "message-box";
+
+    const closeButton = document.createElement("span");
+    closeButton.className = "close-button";
+    closeButton.innerText = "X";
+    closeButton.addEventListener("click", () => {
+        document.body.removeChild(messageContainer);
+    });
+
+    const titleElement = document.createElement("h2");
+    titleElement.innerText = title;
+    titleElement.className = "title-note";
+
+    const messageElement = document.createElement("p");
+    messageElement.innerText = message;
+    messageElement.className = "message-note";
+
+    messageBox.appendChild(closeButton);
+    messageBox.appendChild(titleElement);
+    messageBox.appendChild(messageElement);
+
+    messageContainer.appendChild(messageBox);
+    document.body.appendChild(messageContainer);
+}
+
+// Event listeners para los botones
+missionDiv.addEventListener("click", () => {
+    showMessage("Misión", missionPurpose.textContent);
 });
+
+note1Div.addEventListener("click", () => {
+    showMessage("Nota 1", noteone.textContent);
+});
+
+note2Div.addEventListener("click", () => {
+    showMessage("Nota 2", notetwo.textContent);
+});
+
+note3Div.addEventListener("click", () => {
+    showMessage("Nota 3", notethree.textContent);
+});
+
+finalDiv.addEventListener("click", () => {
+    showMessage("Final", final.textContent);
+});
+
 
 //Funciones auxiliares//////////////////////////////////////
 // Función para destruir la habitación actual
@@ -351,19 +402,18 @@ function drawDoors(table, roomDoors) {
 function showMissionMessage() {
   if (counter == momentNote1) {
     note1Div.style.display = 'block';
-    noteone.style.display = "block";
   } else if (counter == momentNote2) {
     note2Div.style.display = 'block';
-    notetwo.style.display = "block";
   } else if (counter == momentNote3) {
     note3Div.style.display = "block";
-    notethree.style.display = "block";
   }
   if (counter == 11){
     finalDiv.style.display = "block";
-    final.style.display = "block";
   }
 }
+
+
+
 
 //////////////////////////////*Musica*/////////////
 function playPauseMusic() {
