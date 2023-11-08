@@ -125,6 +125,8 @@ const furnitures = [
   "fireplace",
   "weaponsrack",
   "cupboard",
+  "stone",
+  "sphere",
 ];
 
 const monsters = {
@@ -137,6 +139,13 @@ const monsters = {
   dreadWarrior: 4,
   dreadSorcerer: 5,
   gargoyle: 5,
+  orcSergeant: 3,
+  mongrelfolk: 2,
+  dekanterGoblin: 2,
+  sahuaginRanger: 3,
+  devilCriature: 4,
+  destrachan: 4,
+  dragon: 6,
 };
 ////////////Controladores de eventos////////////////////////////
 /* controlador de eventos al botón "Submit" verifica que se haya completado el formulario
@@ -300,16 +309,16 @@ function setupMonsters(playerLevel, monsters) {
   let probabilities;
   if (level === 1) {
     numMonsters = Math.floor(Math.random() * 4);
-    probabilities = [0.25, 0.25, 0.15, 0.15, 0.07, 0.07, 0.04, 0.01, 0.01];
+    probabilities = [0.25, 0.25, 0.15, 0.14, 0.06, 0.06, 0.04, 0.01, 0.01, 0.01, 0.01, 0.01];
   } else if (level === 2) {
     numMonsters = Math.floor(Math.random() * 5);
-    probabilities = [0.2, 0.2, 0.18, 0.18, 0.09, 0.09, 0.04, 0.01, 0.01];
+    probabilities = [0.2, 0.19, 0.17, 0.17, 0.08, 0.08, 0.03, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
   } else if (level === 3) {
     numMonsters = Math.floor(Math.random() * 5);
-    probabilities = [0.18, 0.18, 0.15, 0.15, 0.11, 0.11, 0.1, 0.01, 0.01];
+    probabilities = [0.18, 0.17, 0.14, 0.14, 0.10, 0.10, 0.09, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
   } else if (level === 4) {
     numMonsters = Math.floor(Math.random() * 6);
-    probabilities = [0.14, 0.14, 0.15, 0.15, 0.15, 0.15, 0.1, 0.01, 0.01];
+    probabilities = [0.14, 0.13, 0.14, 0.14, 0.14, 0.14, 0.08, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
   }
   for (let i = 0; i < numMonsters; i++) {
     let rand = Math.random();
