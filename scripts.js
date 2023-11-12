@@ -12,6 +12,7 @@ const notethree = document.getElementById("note-three");
 const final = document.getElementById("final");
 ////////////////////////////////////////////////////////
 const missionDiv = document.getElementById("missionDiv");
+const extranoteDiv = document.getElementById("extranoteDiv");
 const note1Div = document.getElementById("note1Div");
 const note2Div = document.getElementById("note2Div");
 const note3Div = document.getElementById("note3Div");
@@ -127,6 +128,8 @@ const furnitures = [
   "cupboard",
   "stone",
   "sphere",
+  "note",
+  "taberna",
 ];
 
 const monsters = {
@@ -147,6 +150,29 @@ const monsters = {
   destrachan: 4,
   dragon: 6,
 };
+
+const challenges = [
+  "Mientras atraviesan un bosque encantado, escuchan risas melodiosas a lo lejos. Descubren un grupo de criaturas diminutas conocidas como los 'Guardianes del Bosque'. Deben demostrar su buena voluntad para avanzar. Cada héroe puede elegir entre hacer un chiste, cantar una canción o contar una historia para ganarse el favor de los guardianes.",
+  
+  "Encuentran un espejo mágico en una habitación. Cuando se miran en él, ven reflejos de su futuro. Cada héroe debe interpretar su visión y tomar una decisión basada en lo que ven. Dependiendo de sus elecciones, podrían obtener una ventaja o desventaja temporal en el próximo encuentro.",
+
+  "Encuentran una fuente mística que emana conocimiento. Para beber de ella, cada héroe debe responder a una pregunta de enigmas y acertijos. Las respuestas correctas les otorgan un punto extra de mente, mientras que las incorrectas pueden desencadenar efectos inesperados.",
+  
+  "Llegan a una encrucijada donde sombras oscuras se ciernen sobre ellos. Cada héroe debe enfrentarse a su propio temor personal que toma forma física en la sombra. Superar este desafío les otorga resistencia emocional, agregando un punto extra de defensa.",
+
+  "Entrando en un laberinto mágico, los héroes se encuentran con ilusiones confusas que desafían su percepción. Deben confiar en su intuición y tomar decisiones audaces para encontrar el camino correcto. Superar el laberinto les recompensa con un punto extra de ataque por su agudeza estratégica.",
+
+  "En una habitación sombría, encuentran espectros de personas atrapadas en un ciclo de tristeza. Cada héroe debe compartir una historia alentadora o inspiradora para liberar a las almas. Al hacerlo, obtienen un punto extra de mente al fortalecer su voluntad.",
+
+  "Encuentran un pozo misterioso que susurra secretos del pasado y del futuro. Para extraer sabiduría, cada héroe debe compartir un secreto personal. A cambio, reciben información útil para la siguiente parte de su aventura y ganan un punto extra de mente por su sinceridad.",
+
+  "En el centro de una sala, hay una estatua majestuosa que representa el valor. Cada héroe debe enfrentarse a una representación ilusoria de su peor miedo. Al superar este desafío, ganan un punto extra de defensa al demostrar coraje.",
+
+  "Una puerta custodiada por un espíritu enigmático bloquea su camino. Para abrirla, deben resolver acertijos relacionados con sus habilidades únicas. Superar este desafío les otorga un punto extra de ataque al demostrar ingenio.",
+
+  "Encuentran una fuente de aguas ilusorias que prometen curación. Cada héroe debe enfrentar una imagen de su herida más profunda y superarla. Al hacerlo, reciben una curación mágica y ganan un punto extra de cuerpo."
+];
+
 ////////////Controladores de eventos////////////////////////////
 /* controlador de eventos al botón "Submit" verifica que se haya completado el formulario
 y muestra el titulo de la mision y el objetivo */
@@ -188,6 +214,7 @@ submitButton.addEventListener("click", (e) => {
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
     missionDiv.style.display = "block";
+    extranoteDiv.style.display = "block";
     showRoom(missionInfoDiv, room);
     console.log(selectedCharacterLevel);
     setupRoom(selectedCharacterLevel, monsters, furnitures);
@@ -236,6 +263,10 @@ function showMessage(title, message) {
 // Event listeners para los botones
 missionDiv.addEventListener("click", () => {
     showMessage("Misión", missionPurpose.textContent);
+});
+extranoteDiv.addEventListener("click", () => {
+  var challengeElement = setupChallenges(challenges);
+  showMessage("Challenge", challengeElement);
 });
 
 note1Div.addEventListener("click", () => {
@@ -349,6 +380,12 @@ function setupFurnitures(furnitures) {
   }
   return generatedFurnitures;
 }
+function setupChallenges(challenges) {
+  const randomIndex = Math.floor(Math.random() * challenges.length);
+  console.log(challenges[randomIndex]);
+  return (challenges[randomIndex]);
+}
+
 function setupDoors() {
   const doors = ["left", "right", "front"];
   const roomDoors = [];

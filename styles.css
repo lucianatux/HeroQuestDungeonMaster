@@ -212,6 +212,9 @@ td {
  border-radius: 50%;
  padding: 1%;
 }
+#extranoteDiv:hover{
+  text-content:"nota extra";
+}
 
 
 
