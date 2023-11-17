@@ -207,6 +207,8 @@ submitButton.addEventListener("click", (e) => {
 // Configura los eventos de transición de la misión a la primer habitación
   nextButton.addEventListener("click", (e) => {
     e.preventDefault();
+    nextMusic();
+    showDoor();
     missionDiv.style.display = "block";
     extranoteDiv.style.display = "block";
     showRoom(missionInfoDiv, room);
