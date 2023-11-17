@@ -23,6 +23,7 @@ const missionSelect = document.getElementById("mission");
 const nextButton = document.getElementById("next");
 const room = document.querySelector(".room");
 const tonextroom = document.querySelector("#tonextroom");
+const puertaGIF = document.getElementById("puertaGIF");
 
 let selectedCharacterLevel;
 let selectedMission;
@@ -32,13 +33,6 @@ const momentNote1 = Math.floor(Math.random() * 3) + 2;  // Números aleatorios e
 const momentNote2 = Math.floor(Math.random() * 3) + 5;  // Números aleatorios entre 5 y 7
 const momentNote3 = Math.floor(Math.random() * 3) + 8;  // Números aleatorios entre 8 y 10
 console.log(momentNote1, momentNote2, momentNote3);
-
-//MUSIC
-const musicPlayer = document.getElementById("music-player");
-const playPauseButton = document.querySelector(".play-pause");
-const nextMusicButton = document.querySelector(".next-music");
-const musicTitle = document.querySelector(".music-title");
-let currentTrack = 0; // Índice de la pista actual
 
 
 const missions = {
@@ -223,6 +217,8 @@ submitButton.addEventListener("click", (e) => {
 tonextroom.addEventListener("click", (e) => {
   e.preventDefault();
   destroyRoom(); // Llama a la función para destruir la habitación actual
+  nextMusic();
+  showDoor();
   // Luego, después de cerrar la alerta, llama a setupRoom
   setTimeout(() => {
     setupRoom(selectedCharacterLevel, monsters, furnitures);
@@ -258,6 +254,21 @@ function showMessage(title, message) {
 
     messageContainer.appendChild(messageBox);
     document.body.appendChild(messageContainer);
+}
+function showDoor(){
+  // Mostrar el GIF
+  puertaGIF.style.display = "block";
+
+  // Agregar un event listener para el evento 'load'
+  puertaGIF.onload = function () {
+    // Iniciar un temporizador para ocultar el GIF después de un cierto tiempo (por ejemplo, 3000 milisegundos o 3 segundos)
+    setTimeout(function () {
+      puertaGIF.style.display = "none";
+    }, 3000); // Ajusta este valor según tu necesidad
+  };
+
+  // Establecer la fuente del GIF con un parámetro de tiempo para forzar la recarga
+  puertaGIF.src = puertaGIF.src.split("?")[0] + "?" + new Date().getTime();
 }
 
 // Event listeners para los botones
@@ -455,6 +466,7 @@ function showMissionMessage() {
   }
   if (counter == 11){
     finalDiv.style.display = "block";
+    showMessage("Final", final.textContent);
   }
 }
 
@@ -462,6 +474,13 @@ function showMissionMessage() {
 
 
 //////////////////////////////*Musica*/////////////
+//MUSIC
+const musicPlayer = document.getElementById("music-player");
+const playPauseButton = document.querySelector(".play-pause");
+const nextMusicButton = document.querySelector(".next-music");
+const musicTitle = document.querySelector(".music-title");
+let currentTrack = 0; // Índice de la pista actual
+
 function playPauseMusic() {
   if (musicPlayer.paused) {
     musicPlayer.play().then(() => {
@@ -488,6 +507,12 @@ function nextMusic() {
 function updateMusicTitle() {
   musicTitle.textContent = `Música ${currentTrack + 1}`;
 }
+
+musicPlayer.addEventListener("ended", function () {
+  // Llama a la función nextMusic para pasar a la siguiente pista automáticamente
+  nextMusic();
+});
+
 
 playPauseButton.addEventListener("click", playPauseMusic);
 nextMusicButton.addEventListener("click", nextMusic);

@@ -1,3 +1,7 @@
+html, body {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   background: linear-gradient(#00000198, #00000198),
@@ -215,6 +219,12 @@ td {
 #extranoteDiv:hover{
   text-content:"nota extra";
 }
+#puertaGIF{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+}
 
 
 
@@ -244,11 +254,17 @@ td {
   .message-box{
     background-image: url(./dungeons/pergam1.png) ;
   }
+  #puertaGIF{
+    transform: translate(-50%, -50%);
+  }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   td{
     width: 150px;
     height: 150px;
     font-size: 16px;
+  }
+  #puertaGIF{
+    transform: translate(-50%, -50%) scale(1.2);
   }
 }
