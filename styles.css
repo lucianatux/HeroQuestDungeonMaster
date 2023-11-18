@@ -96,17 +96,13 @@ body {
   margin-top: 80px;
   z-index: 1;
 }
-.dungeon-master {
+#fire-gif {
   margin: 30px;
   max-width: 250px;
+  height: auto;
   border: 2px solid grey;
-}
-.title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   position: relative;
+  opacity: 0.2;
 }
 .text {
   text-align: center;
@@ -116,6 +112,16 @@ body {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  background: url('./dungeons/master.jpg') center no-repeat; 
+  background-size: 250px;
 }
 label {
   margin-top: 10px;
