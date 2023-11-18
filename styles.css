@@ -234,9 +234,6 @@ td {
  border-radius: 50%;
  padding: 1%;
 }
-#extranoteDiv:hover{
-  text-content:"nota extra";
-}
 #puertaGIF{
   position: fixed;
   top: 50%;

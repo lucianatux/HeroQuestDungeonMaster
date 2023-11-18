@@ -403,7 +403,7 @@ function setupDoors() {
   const doors = ["left", "right", "front"];
   const roomDoors = [];
   // Determina la cantidad de puertas (0, 1, 2, o 3).
-  const numDoors = Math.floor(Math.random() * 4);
+  const numDoors = Math.floor(Math.random() * 3) + 1; // Modificado para generar números de 1 a 3.
   // Determina la posición de las puertas sin repetir la posición.
   while (roomDoors.length < numDoors) {
     const randomPosition = doors[Math.floor(Math.random() * doors.length)];
